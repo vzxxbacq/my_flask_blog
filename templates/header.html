@@ -1,53 +1,13 @@
 <head>
-    {% block javascript %}
-    <!-- Latex -->
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        extensions: ["tex2jax.js"],
-        jax: ["input/TeX", "output/HTML-CSS"],
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-          processEscapes: true
-        },
-        "HTML-CSS": { fonts: ["TeX"] }
-      });
-    </script>
+  {% block javascript %}
+    
+   <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <!--<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    -->
 
-    <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js"></script>
-    <script type='text/javascript' src="{{url_for('static', filename='js/jquery.js')}}"></script>
-    <script type='text/javascript' src="{{url_for('static', filename='js/swiper.min.js')}}"></script>
-    <script type='text/javascript' src="{{url_for('static', filename='js/custom.js')}}"></script>
-    <!-- 新 Bootstrap 核心 CSS 文件 -->
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- 可选的Bootstrap主题文件（一般不使用） -->
-    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"></script>
-
-    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
-
-    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    
     <!-- Scorll spy -->
-    <script type="text/javascript">
-        $(function() {
-            var $attribute = $('[data-smart-affix]');
-            $attribute.each(function() {
-              $(this).affix({
-                offset: {
-                  top: $(this).offset().top,
-                }
-            })
-        })
-        $(window).on("resize", function() {
-              $attribute.each(function() {
-                $(this).data('bs.affix').options.offset.top = $(this).offset().top
-              })
-            })
-        });
-    </script>
+
     {% endblock %}
     {% block web_header %}
     <title> {{ tittle }}</title>
@@ -65,10 +25,55 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
 
     <!-- Swiper CSS-->
-    <link rel="stylesheet" href="{{url_for('static', filename='swiper.min.css')}}">
-
+    <link ret="stylesheet" href="{{url_for('static', filename='css/swiper.min.css')}}">
     <!-- Styles -->
     <link rel="stylesheet" href="{{url_for('static', filename='highlitght.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
     {% endblock %}
+
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <!-- 
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+     -->
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    
+    <!-- 
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     -->
+  <!-- Latex -->
+  <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js"></script>
+
+    <script type="text/javascript">
+        $(function() {
+            var $attribute = $('[data-smart-affix]');
+            $attribute.each(function() {
+              $(this).affix({
+                offset: {
+                  top: $(this).offset().top,
+                }
+            })
+        })
+        $(window).on("resize", function() {
+              $attribute.each(function() {
+                $(this).data('bs.affix').options.offset.top = $(this).offset().top
+              })
+            })
+        });
+    </script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+    processEscapes: true
+  },
+  "HTML-CSS": { fonts: ["TeX"] }
+  });
+  </script>
+
+
+
 </head>
