@@ -5,6 +5,7 @@
 {% endblock %}
 <body>
 
+  
 {% block top_header_bar %}
   {% include 'topbar.html' %}
 {% endblock %}
@@ -116,11 +117,13 @@
   </div><!-- .row -->
 
 </div><!-- .outer-container -->
-  <script type="text/javascript" src="{{url_for('static', filename='js/jquery.js')}}"></script>
-  <script type="text/javascript" src="{{url_for('static', filename='js/swiper.min.js')}}"></script>
-   <script type='text/javascript' src="{{url_for('static', filename='js/custom.js')}}"></script>
+
 {% block footer %}
     {% include 'footer.html' %}
 {% endblock %}
+
+  <script type="text/javascript" src="{{url_for('static', filename='js/jquery.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='js/swiper.min.js')}}"></script>
+  <script type='text/javascript' src="{{url_for('static', filename='js/custom.js')}}"></script>
 </body>
 </html>

@@ -1,7 +1,12 @@
 posts/
 
+# python
 *.pyc
 __pycache__
+
+# template from internet
+blanca/
+
 # eclipse
 .project
 .pydevproject
