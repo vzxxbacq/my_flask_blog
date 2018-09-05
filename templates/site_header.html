@@ -1,0 +1,42 @@
+<header class="site-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="site-branding flex flex-column align-items-center">
+              <h1 class="site-title"><a href="{{url_for('index')}}" rel="home">FHQ's</a></h1>
+              <p class="site-description">Personal Blog</p>
+            </div><!-- page.artchar -->
+            <nav class="site-navigation">
+              <div class="hamburger-menu d-lg-none">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div><!-- page.header.menu -->
+              {% block topmenu %}
+                <ul class="flex-lg flex-lg-row justify-content-lg-center align-content-lg-center">
+                  <li class="current-menu-item"><a href="{{url_for('index')}}">Home</a></li>
+                  <li><a href="{{url_for('index')}}">features</a></li>
+                  <li><a href="{{url_for('index')}}">Portfolio</a></li>
+                  <li><a href="{{url_for('index')}}">recent post</a></li>
+                  <!--<li><a href="#">Contact</a></li>-->
+                </ul>
+              {% endblock %}
+              <div class="header-bar-social d-md-none">
+                <ul class="flex justify-content-center align-items-center">
+                  <li><a href="https://www.github.com/vzxxbacq" target="_blank"><i class="fa fa-github"></i></a></li>
+                  <li><a href="https://twitter.com/vzxxbacq_fhq" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                  <li><a href="https://www.zhihu.com/people/yolo-85-65/activities" target="_blank"><i class="fa fa-quora"></i></a></li>
+                  <li><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+              </div><!-- .header-bar-social -->
+              <div class="header-bar-search d-md-none">
+                <form>
+                  <input type="search" placeholder="Search">
+                </form>
+              </div><!-- .header-bar-search -->
+            </nav><!-- .site-navigation -->
+          </div><!-- .col -->
+        </div><!-- .row -->
+      </div><!-- .container -->
+    </header><!-- .site-header -->

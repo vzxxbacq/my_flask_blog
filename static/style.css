@@ -28,7 +28,8 @@ pre{
 body {
     background-color: #f6f6f6;
     color: #2f2f2f;
-    font-family: 'HelveticaNeueLTPro-Md';
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    /*font-family: 'HelveticaNeueLTPro-Md';*/
     font-size: 16px;
 }
 
@@ -549,7 +550,7 @@ h1{
 }
 
 .single-page .content-wrap .entry-content {
-    margin: 30px 10px 10px 10px;
+    margin: 30px 10px 25px 10px;
 }
 
 .single-page .content-wrap .entry-content h1 {
