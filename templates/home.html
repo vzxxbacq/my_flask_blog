@@ -1,0 +1,22 @@
+{% extends "template.html" %}
+
+
+
+{% block Content %}
+{% import 'macro.html' as macro %}
+
+{% for date, content, name in zip_datas %}
+    {{ macro.render_content(content) }}
+    {{ macro.render_content_footer(type, comment, name, date) }}
+{% endfor %}
+
+{% endblock %}
+{% block pages %}
+
+{% import 'macro.html' as macro %}
+{{ macro.render_pages(pages, active_page) }}
+
+{% endblock %}
+{% block footer %}
+    {% include 'footer.html'%}
+{% endblock %}

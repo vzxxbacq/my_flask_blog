@@ -1,0 +1,54 @@
+{% macro render_content(content) %}
+
+<div class="entry-content">
+    <p> {{ content|safe }} </p>
+</div>
+
+{% endmacro %}
+
+{% macro render_date(date) %}
+{% if date %}
+<div class="posted-date">
+    {{ date }}
+</div>
+{% endif %}
+{% endmacro %}
+
+{% macro render_content_footer(type, comment, name, date=None) %}
+<footer class="entry-footer flex flex-column flex-lg-row justify-content-between align-content-start align-lg-items-center">
+    {% if type=='index' %}
+    {% if date %}
+    {{ render_date(date) }}
+    {% else %}
+    <ul class="post-share flex align-items-center order-3 order-lg-1">
+        <!--<label>Share</label>-->
+        <li><a href="#"><i class="fa fa-zzz"></i></a></li>
+        <li><a href="#"><i class="fa fa-zzz"></i></a></li>
+        <li><a href="#"><i class="fa fa-zzz"></i></a></li>
+    </ul><!-- .post-share -->
+    {% endif %}
+    <a class="read-more order-2" href="{{ name }}">Read more</a>
+    {% endif %}
+    {% if comment %}
+    <!-- .comments-count -->
+    <div class="comments-count order-1 order-lg-3">
+        <a href="#">2 Comments</a>
+    </div>
+    {% endif %}
+</footer><!-- .entry-footer -->
+
+{% endmacro %}
+
+{% macro render_pages(pages, active_page) %}
+<div class="pagination">
+    {% for page in pages %}
+    <ul class="flex align-items-center">
+        {% if page==active_page %}
+            <li class="active"><a href="{{ url_for(request.endpoint) }}?page={{page}}"> {{ page }}</a></li>
+        {% else %}
+            <li><a href="{{ url_for(request.endpoint) }}?page={{page}}"> {{ page }} </a></li>
+        {% endif %}
+    </ul>
+    {% endfor %}
+</div>
+{% endmacro %}

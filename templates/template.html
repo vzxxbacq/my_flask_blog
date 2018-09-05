@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block javascript %}
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true
+        },
+        "HTML-CSS": { fonts: ["TeX"] }
+      });
+    </script>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js"></script>
+    <script type='text/javascript' src="{{url_for('static', filename='js/jquery.js')}}"></script>
+    <script type='text/javascript' src="{{url_for('static', filename='js/swiper.min.js')}}"></script>
+    <script type='text/javascript' src="{{url_for('static', filename='js/custom.js')}}"></script>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- 可选的Bootstrap主题文件（一般不使用） -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"></script>
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        $(function() {
+            var $attribute = $('[data-smart-affix]');
+            $attribute.each(function() {
+              $(this).affix({
+                offset: {
+                  top: $(this).offset().top,
+                }
+            })
+        })
+        $(window).on("resize", function() {
+              $attribute.each(function() {
+                $(this).data('bs.affix').options.offset.top = $(this).offset().top
+              })
+            })
+        });
+    </script>
+    {% endblock %}
+    {% block header %}
+    <title> {{ tittle }}</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+
+
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/font-awesome.min.css')}}">
+
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+
+    <!-- Swiper CSS-->
+    <link rel="stylesheet" href="{{url_for('static', filename='swiper.min.css')}}">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{url_for('static', filename='highlitght.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    {% endblock %}
+</head>
+<body>
+
+<div class="top-header-bar">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 flex align-items-center">
+                <div class="header-bar-text d-none d-lg-block">
+                    <p>Hello world, here's VZXXBACQ's blog</p>
+                </div><!-- .header-bar-text -->
+                <div class="header-bar-email d-none d-lg-block">
+                    <a href="mailto:fhq981014@gmail.com">fhq981014@gmail.com</a>
+                </div><!-- .header-bar-email -->
+            </div><!-- .header-bar -->
+            <!-- 社交媒体图标-->
+            <div class="col-12 col-lg-6 flex justify-content-between justify-content-lg-end align-items-center">
+            <div class="header-bar-social d-none d-md-block">
+                <ul class="flex align-items-center">
+                    <li><a href="https://www.github.com/vzxxbacq" target="_blank"><i class="fa fa-github"></i></a></li>
+                    <li><a href="https://twitter.com/vzxxbacq_fhq" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="https://www.zhihu.com/people/yolo-85-65/activities" target="_blank"><i class="fa fa-quora"></i></a></li>
+                    <li><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+            <!-- .header-bar-social -->
+            <!-- 搜索 -->
+            <div class="header-bar-search d-none d-md-block">
+                <form method="POST" action="/search">
+                    <input type="search" name="search" placeholder="Search">
+                </form>
+            </div><!-- .header-bar-search -->
+        </div><!-- .col -->
+        </div><!-- .row -->
+    </div><!-- .container-fluid -->
+</div><!-- .top-header-bar -->
+
+<div class="outer-container">
+    <header class="site-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="site-branding flex flex-column align-items-center">
+                        <h1 class="site-title"><a href="{{url_for('index')}}" rel="home">FHQ's</a></h1>
+                        <p class="site-description">Personal Blog</p>
+                    </div><!-- .site-branding -->
+                    <nav class="site-navigation">
+                        <div class="hamburger-menu d-lg-none">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div><!-- .hamburger-menu -->
+                        {% block topmenu %}
+                        <ul class="flex-lg flex-lg-row justify-content-lg-center align-content-lg-center">
+                            <li class="current-menu-item"><a href="{{url_for('index')}}">Home</a></li>
+                            <li><a href="{{url_for('index')}}">features</a></li>
+                            <li><a href="{{url_for('index')}}">Portfolio</a></li>
+                            <li><a href="{{url_for('index')}}">recent post</a></li>
+                            <!--<li><a href="#">Contact</a></li>-->
+                        </ul>
+                        {% endblock %}
+                        <div class="header-bar-social d-md-none">
+                            <ul class="flex justify-content-center align-items-center">
+                                <li><a href="https://www.github.com/vzxxbacq" target="_blank"><i class="fa fa-github"></i></a></li>
+                                <li><a href="https://twitter.com/vzxxbacq_fhq" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="https://www.zhihu.com/people/yolo-85-65/activities" target="_blank"><i class="fa fa-quora"></i></a></li>
+                                <li><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div><!-- .header-bar-social -->
+
+                        <div class="header-bar-search d-md-none">
+                            <form>
+                                <input type="search" placeholder="Search">
+                            </form>
+                        </div><!-- .header-bar-search -->
+                    </nav><!-- .site-navigation -->
+                </div><!-- .col -->
+            </div><!-- .row -->
+        </div><!-- .container -->
+    </header><!-- .site-header -->
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-12">
+            <!--
+                <div class="swiper-container hero-slider">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="hero-content flex justify-content-center align-items-center flex-column">
+                                <img src="images/slider.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="hero-content flex justify-content-center align-items-center flex-column">
+                                <img src="images/slider.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="hero-content flex justify-content-center align-items-center flex-column">
+                                <img src="images/slider.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-pagination"></div>
+
+                    <div class="swiper-button-next flex justify-content-center align-items-center">
+                        <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 44"><path d="M27,22L27,22L5,44l-2.1-2.1L22.8,22L2.9,2.1L5,0L27,22L27,22z"></path></svg></span>
+                    </div>
+                    <div class="swiper-button-prev flex justify-content-center align-items-center">
+                        <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 44"><path d="M0,22L22,0l2.1,2.1L4.2,22l19.9,19.9L22,44L0,22L0,22L0,22z"></path></svg></span>
+                    </div>
+                </div>
+                -->
+            </div>
+        </div>
+
+
+    </div><!-- .hero-section -->
+
+    <div class="container single-page">
+        <div class="row">
+            <div class="col-12 col-lg-9">
+                <div class="content-wrap">
+                    <!-- .entry-header -->
+                    <header class="entry-header">
+                        <!-- title -->
+                        <h2 class="entry-title"> {{ title }} </h2>
+                        <!-- .tags-links -->
+                        <div class="tags-links">
+                            {% if category %}
+                                Category: <a href="/category/{{category}}">{{ category }}</a>
+                            {% endif %}
+                        </div>
+                    </header>
+                    <div class="entry-content">
+                        {% block Content %}
+                        <!-- .posted-date -->
+
+                        {% import 'macro.html' as macro %}
+                        {% if date %}
+                        {{ macro.render_date(date) }}
+                        {% endif %}
+                        {{ macro.render_content(content) }}
+                        {{ macro.render_content_footer(type, comment, name) }}
+                        {% endblock %}
+                    </div>
+
+                </div><!-- .content-wrap -->
+                <!-- Pages -->
+
+                {% block pages %}
+                {% endblock %}
+            </div>
+            <div class="col-12 col-lg-3">
+                <div class="tag-list">
+                    <a href="#">
+                        <div class="yt-subscribe">
+                            <h3>About Me</h3>
+                            <p>To Contact Me</p>
+                            <img src="{{url_for('static', filename='img/header.jpg')}}" alt="Youtube Subscribe">
+                        </div><!-- .yt-subscribe -->
+                    </a>
+                </div><!-- .col -->
+
+                        <div class="sidebar" data-smart-affix>
+                                {% block Toc %}
+                                {% if toc %}
+                                <div class="toc-block">
+                                    <div class="toc-title"><p>目录</p></div>
+                                    {{ toc|safe }}
+                                </div>
+                                {% endif %}
+                                {% endblock %}
+                            <!-- tags -->
+                            <div class="tags-list">
+                                {% macro render_tags(tag) %}
+                                <a href="/tag/{{ tag }}"> {{ tag }} </a>
+                                {% endmacro %}
+                                {% if tags %}
+                                <label>Tags :  </label>
+                                <br>
+                                {% for tag in tags %}
+                                {{ render_tags(tag) }}
+                                {% endfor %}
+                                {% endif %}
+                            </div><!-- .tags-list -->
+                        </div><!-- .sidebar -->
+
+
+            </div><!-- .col -->
+        </div><!-- .col -->
+    </div><!-- .row -->
+</div><!-- .outer-container -->
+
+{% block footer %}
+    {% include 'footer.html' %}
+{% endblock %}
+</body>
+</html>
